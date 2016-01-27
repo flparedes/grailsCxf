@@ -16,28 +16,52 @@ class ProductosService implements ProductosServices {
     @WebMethod
     @WebResult
     def List<ProductoData> buscarProductos(String nombre) {
-		List<ProductoData> lista = new LinkedList<ProductoData>();
-		
-		lista.add(crearProducto())
-		lista
+    	// De momento el parámetro nombre no se usa para nada.
+		crearProductos()
 	}
 
 	@WebMethod
     @WebResult
     def ProductoData buscarProductoPorId(String productoId) {
-		productoId == '001' ? crearProducto() : null;
+		ProductoData producto = null
+		def productos = crearProductos()
+		
+		productos.each {
+			if (it.getProductoId().equals(productoId)) {
+				producto = it
+			}
+		}
+		
+		producto
 	}
 	
 	/**
-	 * Método auxiliar para crear un producto temporal.
-	 * @return producto creado.
+	 * Método auxiliar para crear una lista temporal de productos.
+	 * @return Lista de productos creados.
 	 */
-	def ProductoData crearProducto() {
+	def List<ProductoData> crearProductos() {
+		List<ProductoData> productos = new LinkedList <ProductoData>();
+		
+		productos.add(crearProducto('001', 'Blog', 'https://franl2p.wordpress.com'));
+		productos.add(crearProducto('002', 'Autor', 'Francisco Luis Paredes'));
+		productos.add(crearProducto('003', 'GitHub', 'https://github.com/flparedes'));
+		
+		productos
+	}
+	
+	/**
+	 * Método auxiliar para crear un producto.
+	 * @param id Identificador del producto.
+	 * @param nombre Nombre del producto.
+	 * @param descripcion Descripción del producto.
+	 * @return Producto creado.
+	 */
+	def ProductoData crearProducto(String id, String nombre, String descripcion) {
 		ProductoData producto = new ProductoData()
 		
-		producto.setProductoId('001')
-		producto.setNombre('Blog')
-		producto.setDescripcion('https://franl2p.wordpress.com')
+		producto.setProductoId(id)
+		producto.setNombre(nombre)
+		producto.setDescripcion(descripcion)
 		
 		producto
 	}
