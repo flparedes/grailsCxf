@@ -1,3 +1,3 @@
 RUTA_APACHE_CXF\bin>wsdl2java -d <DIRECTORIO_SALIDA> -p <PAQUETE> <URL_WSDL>
 
-C:\Software\Java\apache-cxf-3.1.4\bin>wsdl2java -d C:\DesarrolloUPO\tui\grailsCxf\src\main\groovy -p com.steelmood.tui.ws C:\DesarrolloUPO\tui\grailsCxf\src\main\groovy\ProductosServices.wsdl
+C:\Software\Java\apache-cxf-3.1.4\bin>wsdl2java -d C:\Grails\workspace\grailsCxf\src\main\groovy -p es.franl2p C:\Grails\workspace\grailsCxf\src\main\groovy\ProductosServices.wsdl
