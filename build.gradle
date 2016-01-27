@@ -62,6 +62,9 @@ dependencies {
     compile "org.grails.plugins:cache"
     compile "org.hibernate:hibernate-ehcache"
     compile "org.grails.plugins:scaffolding"
+	
+	// Dependencia con Apache CXF
+    compile "org.grails.plugins:grails-cxf:3.0.9"
 
     runtime "org.grails.plugins:asset-pipeline"
 
